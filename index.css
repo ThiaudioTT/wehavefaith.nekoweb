@@ -1,3 +1,8 @@
+:root {
+  --title: #a0d2db;
+  --text: #c490d1;
+}
+
 html {
   /* Background image */
   background-image: url("/assets/background.png");
@@ -20,6 +25,35 @@ html {
   z-index: -1;
 }
 
+h1 {
+  color: var(--title);
+}
+
+h2 {
+  color: #ff69b4;
+}
+
 body {
-  text-align: center;
+  text-align: justify-center;
+  color: var(--text);
+  font-family: "Jersey 15", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li::before {
+  content: "👉 ";
 }

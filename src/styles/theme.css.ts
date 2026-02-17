@@ -1,5 +1,5 @@
 import type { Theme } from "./theme";
-import { VA11Theme } from "./theme";
+import { KillEmAllTheme } from "./theme";
 
 export function themeToCSS(theme: Theme) {
   return `
@@ -14,4 +14,4 @@ export function themeToCSS(theme: Theme) {
 }
 
 // default output
-export const themeCSS = themeToCSS(VA11Theme);
+export const themeCSS = themeToCSS(KillEmAllTheme);

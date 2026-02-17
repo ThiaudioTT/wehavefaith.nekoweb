@@ -1,9 +1,10 @@
-export const VA11Theme = {
-  background: "#0b0c10",
-  panel: "#11131a",
-  border: "#ff4bc7",
-  text: "#ffbaf4",
-  accent: "#00eaff",
+export const KillEmAllTheme = {
+  // Etna Inspired theme!!!
+  text: "#FFFFFF",
+  background: "#000000",
+  primary: "#E6233D",
+  secondary: "#4A4A4A",
+  accent: "#6B2EFF",
 } as const;
 
-export type Theme = typeof VA11Theme;
+export type Theme = typeof KillEmAllTheme;

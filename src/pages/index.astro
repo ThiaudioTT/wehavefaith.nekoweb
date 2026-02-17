@@ -1,14 +1,16 @@
 ---
-import MainTitle from "../components/MainTitle.astro";
+import VA11Layout from "../layouts/Va11layout.astro";
+import Window from "../components/Window.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>We have faith! (yes)</title>
-  </head>
-  <body>
-    <MainTitle />
-  </body>
-</html>
+<VA11Layout title="VA-11 HALL-A Layout">
+  <Window title="Drink Menu">
+    <p>
+      Welcome to the bar, Thiago.<br /> Time to mix some drinks and change some lives.
+    </p>
+  </Window>
+
+  <Window title="Status">
+    <p>System online.<br />Color palette active.<br />Neon powered.</p>
+  </Window>
+</VA11Layout>

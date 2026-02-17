@@ -1,0 +1,38 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="window">
+  <div class="title-bar">{title}</div>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .window {
+    background: var(--panel);
+    border: 3px solid var(--border);
+    border-radius: 8px;
+    box-shadow:
+      0 0 15px rgba(255, 75, 199, 0.6),
+      inset 0 0 8px rgba(255, 75, 199, 0.3);
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+  }
+
+  .title-bar {
+    background: rgba(255, 75, 199, 0.1);
+    border-bottom: 2px solid var(--border);
+    padding: 0.6rem 1rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-shadow: 0 0 6px var(--accent);
+  }
+
+  .content {
+    padding: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+</style>

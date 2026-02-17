@@ -1,0 +1,61 @@
+---
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <div class="va11-desktop">
+      <div class="scanlines"></div>
+      <slot />
+    </div>
+  </body>
+
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --panel: #11131a;
+      --border: #ff4bc7;
+      --text: #ffbaf4;
+      --accent: #00eaff;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Share Tech Mono", monospace;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* CRT Scanlines */
+    .scanlines {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 2px,
+        transparent 3px,
+        transparent 4px
+      );
+      mix-blend-mode: overlay;
+      z-index: 50;
+    }
+
+    .va11-desktop {
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  </style>
+</html>

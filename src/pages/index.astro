@@ -8,6 +8,8 @@ import kyokaFooter from "../images/kyoka-footer.png";
 import killemall from "../images/killemall.jpg";
 import come_as_you_are from "../images/come_as_you_are.png";
 import WindowImage from "../components/WindowImage.astro";
+import sukuna from "../images/sukuna.jpg";
+import silly from "../images/silly.jpg";
 import { Image } from "astro:assets";
 ---
 
@@ -20,6 +22,14 @@ import { Image } from "astro:assets";
 
   <Draggable x={1000} y={60}>
     <WindowImage src={killemall} width={250} alt="A Metallica album" />
+  </Draggable>
+
+  <Draggable x={60} y={543}>
+    <WindowImage src={silly} width={260} height={250} alt="A Metallica album" />
+  </Draggable>
+
+  <Draggable x={1000} y={660}>
+    <WindowImage src={sukuna} width={250} alt="A Metallica album" />
   </Draggable>
 
   <Draggable x={1000} y={500}>

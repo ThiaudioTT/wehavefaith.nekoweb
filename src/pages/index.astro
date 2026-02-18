@@ -4,7 +4,9 @@ import StickyNote from "../components/StickyNote.astro";
 import Draggable from "../components/Draggable.astro";
 import MainTitle from "../components/MainTitle.astro";
 import etna from "../images/etna.png";
+import kyokaFooter from "../images/kyoka-footer.png";
 import WindowImage from "../components/WindowImage.astro";
+import { Image } from "astro:assets";
 ---
 
 <MainTitle />
@@ -57,11 +59,40 @@ import WindowImage from "../components/WindowImage.astro";
       </strong>
     </p>
   </main>
+
+  <footer>
+    <div>
+      <a href="https://nekoweb.org/"
+        ><img src="https://nekoweb.org/assets/buttons/button3.gif" /></a
+      >
+    </div>
+  </footer>
 </KillEmAllLayout>
 
+<Image
+  src={kyokaFooter}
+  alt="It's kyoka!"
+  class="footer-image"
+  loading="lazy"
+/>
 <style>
   main {
     text-align: justify;
     color: var(--accent);
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-image {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: auto;
+    margin: 0;
+    z-index: 1000;
+    pointer-events: none;
   }
 </style>

@@ -8,6 +8,7 @@ import { themeCSS } from "../styles/theme.css.ts";
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
+    <style is:global set:html={themeCSS}></style>
   </head>
 
   <body>
@@ -19,10 +20,6 @@ import { themeCSS } from "../styles/theme.css.ts";
     </div>
   </body>
 
-  <style is:global>
-    {themeCSS}
-  </style>
-
   <style>
     body {
       margin: 0;
@@ -32,9 +29,8 @@ import { themeCSS } from "../styles/theme.css.ts";
       position: relative;
       overflow-x: hidden;
     }
-        to bottom,
-        rgba(255, 255, 255, 0.03) 0px,
-        rgba(255, 255, 255, 0.03) 2px,
+
+    .scanlines {
       pointer-events: none;
       position: fixed;
       inset: 0;
@@ -42,6 +38,13 @@ import { themeCSS } from "../styles/theme.css.ts";
         to bottom,
         rgba(255, 255, 255, 0.03) 0px,
         rgba(255, 255, 255, 0.03) 2px,
+        transparent 3px,
+        transparent 4px
+      );
+      mix-blend-mode: overlay;
+      z-index: 50;
+    }
+
     .main-frame {
       min-height: 100vh;
       padding: 2.5rem;
@@ -49,12 +52,10 @@ import { themeCSS } from "../styles/theme.css.ts";
       align-items: stretch;
       justify-content: center;
       box-sizing: border-box;
-      background:
-        radial-gradient(circle at top center, color-mix(in srgb, var(--primary) 45%, transparent) 0, transparent 55%),
-        var(--background);
+      background: var(--background);
     }
 
-        transparent 3px,
+    .main-container {
       width: 100%;
       max-width: 900px;
       border: 4px solid var(--primary);
@@ -65,20 +66,19 @@ import { themeCSS } from "../styles/theme.css.ts";
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      background: linear-gradient(
-        to bottom,
-        color-mix(in srgb, var(--background) 94%, var(--primary) 6%),
-        color-mix(in srgb, var(--background) 98%, var(--primary) 2%)
-      );
+      background: var(--background);
       box-sizing: border-box;
     }
 
-    .main-container {
-      padding: 2rem;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+    @media (max-width: 768px) {
+      .main-frame {
+        padding: 1.5rem;
+      }
+
+      .main-container {
+        padding: 1.5rem;
+        border-width: 3px;
+      }
     }
   </style>
 </html>

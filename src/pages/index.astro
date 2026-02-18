@@ -10,17 +10,58 @@ import WindowImage from "../components/WindowImage.astro";
 <MainTitle />
 
 <KillEmAllLayout title="We have faith (for sure!)">
-  <Draggable x={50} y={150}>
-    <WindowImage
-      title="London Calling!"
-      src={etna}
-      width={250}
-      height={200}
-      alt="That's Etna!"
-    />
+  <Draggable x={50} y={200}>
+    <WindowImage src={etna} width={250} height={200} alt="That's Etna!" />
   </Draggable>
 
   <Draggable x={1000} y={500}>
     <StickyNote title="Note"> Is this a christian website??</StickyNote>
   </Draggable>
+
+  <main>
+    <p>
+      I come from a land down under<br />
+      Where women glow and men plunder!<br />
+      Not the one in that old song rolling like thunder,<br />
+      But from a place where the heat hits harder,<br />
+      And life keeps rhythm like a backyard drummer. <br />
+    </p>
+
+    <p>
+      I'm an engineer born to build and tinker,<br />
+      Spinning up servers quicker than a thinker.<br />
+      My homelab glows in the night like a wonder,<br />
+      I use Arch btw — pain pulls me under. <br />
+    </p>
+
+    <p>
+      Stuck in vim since 2018,<br />
+      Still tapping <code>:q!</code> like it's some holy banner.<br />
+    </p>
+
+    <p>
+      Ten grams of creatine — at least — I hunger.<br />
+      Guitar in hand when the cycles go asunder,<br />
+      Faith, steel, thunder — they pull me from the blunder. <br />
+    </p>
+
+    <p>
+      So here I stand with my nerdy song,<br />
+      In this land down under where I code along. <br />
+    </p>
+
+    <br />
+    <p>
+      <strong>
+        Can't you hear? Can't you hear the thunder?<br />
+      </strong>
+    </p>
+  </main>
 </KillEmAllLayout>
+
+<style>
+  main {
+    text-align: justify;
+    color: var(--accent);
+  }
+</style>

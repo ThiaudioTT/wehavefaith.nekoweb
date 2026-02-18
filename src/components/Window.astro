@@ -11,28 +11,31 @@ const { title } = Astro.props;
 
 <style>
   .window {
-    background: var(--panel);
-    border: 3px solid var(--border);
+    background: var(--secondary);
+    border: 3px solid var(--primary);
     border-radius: 8px;
     box-shadow:
-      0 0 15px rgba(255, 75, 199, 0.6),
-      inset 0 0 8px rgba(255, 75, 199, 0.3);
+      0 0 20px color-mix(in srgb, var(--primary) 60%, transparent),
+      0 0 4px color-mix(in srgb, var(--accent) 45%, transparent);
     overflow: hidden;
     backdrop-filter: blur(4px);
   }
 
   .title-bar {
-    background: rgba(255, 75, 199, 0.1);
-    border-bottom: 2px solid var(--border);
+    background: var(--primary);
+    border-bottom: 2px solid var(--primary);
     padding: 0.6rem 1rem;
     font-weight: bold;
-    color: var(--accent);
-    text-shadow: 0 0 6px var(--accent);
+    color: var(--secondary);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--primary) 65%, transparent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   .content {
     padding: 1.2rem;
     font-size: 1rem;
     line-height: 1.5rem;
+    color: var(--background);
   }
 </style>

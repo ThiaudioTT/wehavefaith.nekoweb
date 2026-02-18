@@ -1,5 +1,6 @@
 ---
 const { title } = Astro.props;
+import { themeCSS } from "../styles/theme.css.ts";
 ---
 
 <!doctype html>
@@ -10,32 +11,30 @@ const { title } = Astro.props;
   </head>
 
   <body>
-    <div class=".main-container">
+    <div class="main-frame">
       <div class="scanlines"></div>
-      <slot />
+      <div class="main-container">
+        <slot />
+      </div>
     </div>
   </body>
 
-  <style>
-    :root {
-      --bg: #0b0c10;
-      --panel: #11131a;
-      --border: #ff4bc7;
-      --text: #ffbaf4;
-      --accent: #00eaff;
-    }
+  <style is:global>
+    {themeCSS}
+  </style>
 
+  <style>
     body {
       margin: 0;
-      background: var(--bg);
+      background: var(--background);
       color: var(--text);
       font-family: "Share Tech Mono", monospace;
       position: relative;
       overflow-x: hidden;
     }
-
-    /* CRT Scanlines */
-    .scanlines {
+        to bottom,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 2px,
       pointer-events: none;
       position: fixed;
       inset: 0;
@@ -43,11 +42,35 @@ const { title } = Astro.props;
         to bottom,
         rgba(255, 255, 255, 0.03) 0px,
         rgba(255, 255, 255, 0.03) 2px,
+    .main-frame {
+      min-height: 100vh;
+      padding: 2.5rem;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      box-sizing: border-box;
+      background:
+        radial-gradient(circle at top center, color-mix(in srgb, var(--primary) 45%, transparent) 0, transparent 55%),
+        var(--background);
+    }
+
         transparent 3px,
-        transparent 4px
+      width: 100%;
+      max-width: 900px;
+      border: 4px solid var(--primary);
+      box-shadow:
+        0 0 32px color-mix(in srgb, var(--primary) 60%, transparent),
+        0 0 4px color-mix(in srgb, var(--accent) 30%, transparent);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--background) 94%, var(--primary) 6%),
+        color-mix(in srgb, var(--background) 98%, var(--primary) 2%)
       );
-      mix-blend-mode: overlay;
-      z-index: 50;
+      box-sizing: border-box;
     }
 
     .main-container {

@@ -13,5 +13,4 @@ export function themeToCSS(theme: Theme) {
   `;
 }
 
-// default output
 export const themeCSS = themeToCSS(KillEmAllTheme);

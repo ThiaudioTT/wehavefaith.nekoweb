@@ -4,19 +4,18 @@ import Window from "../components/Window.astro";
 import StickyNote from "../components/StickyNote.astro";
 import Draggable from "../components/Draggable.astro";
 import MainTitle from "../components/MainTitle.astro";
-import etna from "../images/etna.webp";
+import etna from "../images/etna.png";
 import WindowImage from "../components/WindowImage.astro";
 ---
 
 <MainTitle />
 
 <KillEmAllLayout title="We have faith (for sure!)">
-  <img src={etna} width="300" />
-
   <Draggable x={50} y={150}>
     <WindowImage
+      title="London Calling!"
       src={etna}
-      width={300}
+      width={250}
       height={200}
       alt="That's Etna!"
     />

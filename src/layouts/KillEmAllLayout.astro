@@ -2,6 +2,7 @@
 const { title } = Astro.props;
 import { themeCSS } from "../styles/theme.css.ts";
 import Rain from "../components/Rain.astro";
+import AudioPlayer from "../components/AudioPlayer.astro";
 ---
 
 <!doctype html>
@@ -13,6 +14,7 @@ import Rain from "../components/Rain.astro";
   </head>
 
   <body>
+    <AudioPlayer />
     <Rain k={0.8} />
     <div class="main-frame">
       <div class="scanlines"></div>

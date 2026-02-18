@@ -1,0 +1,79 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+const songsDir = path.resolve("public/songs");
+const AUDIO_EXTENSIONS = new Set([".mp3", ".ogg", ".wav", ".flac", ".m4a", ".opus", ".webm"]);
+
+let songs: string[] = [];
+try {
+  songs = fs
+    .readdirSync(songsDir)
+    .filter((f) => AUDIO_EXTENSIONS.has(path.extname(f).toLowerCase()))
+    .map((f) => `/songs/${f}`);
+} catch {
+  // directory doesn't exist or can't be read — silently skip
+}
+---
+
+{songs.length > 0 && (
+  <>
+    <audio id="bg-audio" preload="auto"></audio>
+    <div id="audio-prompt" title="click anywhere to start music">♪ click to play</div>
+    <script define:vars={{ songs }}>
+      const audio = document.getElementById("bg-audio");
+      audio.volume = 0.2;
+      const prompt = document.getElementById("audio-prompt");
+
+      function pickRandom() {
+        return songs[Math.floor(Math.random() * songs.length)];
+      }
+
+      function playSong(src) {
+        audio.src = src;
+        audio.play().then(() => {
+          prompt.style.display = "none";
+        }).catch(() => {
+          // autoplay blocked — show hint and wait for first user interaction
+          prompt.style.display = "block";
+          const resume = () => {
+            audio.play().then(() => {
+              prompt.style.display = "none";
+            });
+            document.removeEventListener("click", resume);
+            document.removeEventListener("keydown", resume);
+          };
+          document.addEventListener("click", resume, { once: true });
+          document.addEventListener("keydown", resume, { once: true });
+        });
+      }
+
+      audio.addEventListener("ended", () => playSong(pickRandom()));
+
+      playSong(pickRandom());
+    </script>
+  </>
+)}
+
+<style>
+  #audio-prompt {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 999;
+    background: var(--background, #0d0d0d);
+    color: var(--text, #e0e0e0);
+    border: 1px solid currentColor;
+    padding: 0.4rem 0.8rem;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 0.75rem;
+    opacity: 0.75;
+    cursor: pointer;
+    animation: blink 1.4s step-start infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0.2; }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 const { title } = Astro.props;
 import { themeCSS } from "../styles/theme.css.ts";
+import Rain from "../components/Rain.astro";
 ---
 
 <!doctype html>
@@ -12,6 +13,7 @@ import { themeCSS } from "../styles/theme.css.ts";
   </head>
 
   <body>
+    <Rain k={0.5} />
     <div class="main-frame">
       <div class="scanlines"></div>
       <div class="main-container">
@@ -52,7 +54,8 @@ import { themeCSS } from "../styles/theme.css.ts";
       align-items: stretch;
       justify-content: center;
       box-sizing: border-box;
-      background: var(--background);
+      position: relative;
+      z-index: 2;
     }
 
     .main-container {
@@ -61,7 +64,6 @@ import { themeCSS } from "../styles/theme.css.ts";
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      background: var(--background);
       box-sizing: border-box;
     }
 

@@ -1,0 +1,28 @@
+---
+const { src, width = 300, height = 200, alt = "" } = Astro.props;
+// Handle both string paths and imported image objects
+const imageSrc = typeof src === "string" ? src : src.src;
+---
+
+<div class="window-image" style={`width:${width}px; height:${height}px;`}>
+  <img src={imageSrc} alt={alt} loading="lazy" />
+</div>
+
+<style>
+  .window-image {
+    background: var(--secondary);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    overflow: hidden; /* clips image */
+    position: relative;
+  }
+
+  .window-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* doesn't interfere with dragging */
+    user-select: none;
+    display: block;
+  }
+</style>

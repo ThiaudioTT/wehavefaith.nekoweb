@@ -4,22 +4,25 @@ import Window from "../components/Window.astro";
 import StickyNote from "../components/StickyNote.astro";
 import Draggable from "../components/Draggable.astro";
 import MainTitle from "../components/MainTitle.astro";
+import etna from "../images/etna.webp";
+import WindowImage from "../components/WindowImage.astro";
 ---
 
 <MainTitle />
 
 <KillEmAllLayout title="We have faith (for sure!)">
+  <img src={etna} width="300" />
+
   <Draggable x={50} y={150}>
-    <Window title="Drink Menu">
-      <p>
-        Welcome to the bar, Thiago.<br /> Time to mix some drinks and change some lives.
-      </p>
-    </Window>
+    <WindowImage
+      src={etna}
+      width={300}
+      height={200}
+      alt="That's Etna!"
+    />
   </Draggable>
 
   <Draggable x={400} y={200}>
-    <StickyNote title="Note">
-      I am a sticky note.
-    </StickyNote>
+    <StickyNote title="Note"> I am a sticky note. </StickyNote>
   </Draggable>
 </KillEmAllLayout>

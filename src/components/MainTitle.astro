@@ -13,19 +13,19 @@
     position: relative;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--text);
   }
 
   .title-text {
     position: relative;
     display: inline-block;
-    color: #fff;
+    color: var(--text);
     text-shadow:
-      0 0 5px #fff,
-      0 0 10px #fff,
-      0 0 20px #e10600,
-      0 0 40px #e10600,
-      0 0 60px #e10600;
+      0 0 5px var(--text),
+      0 0 10px var(--text),
+      0 0 20px var(--primary),
+      0 0 40px var(--primary),
+      0 0 60px var(--primary);
     animation: flicker 3s infinite;
   }
 
@@ -41,13 +41,13 @@
   }
 
   .main-title::before {
-    color: #ff4b4b;
+    color: var(--accent);
     animation: glitch-1 0.3s infinite linear alternate-reverse;
     clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
   }
 
   .main-title::after {
-    color: white;
+    color: var(--text);
     animation: glitch-2 0.2s infinite linear alternate-reverse;
     clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
   }
@@ -62,11 +62,11 @@
     56%,
     100% {
       text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px #e10600,
-        0 0 40px #e10600,
-        0 0 60px #e10600;
+        0 0 5px var(--text),
+        0 0 10px var(--text),
+        0 0 20px var(--primary),
+        0 0 40px var(--primary),
+        0 0 60px var(--primary);
     }
     20%,
     24%,

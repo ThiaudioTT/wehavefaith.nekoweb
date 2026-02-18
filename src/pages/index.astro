@@ -5,6 +5,8 @@ import Draggable from "../components/Draggable.astro";
 import MainTitle from "../components/MainTitle.astro";
 import etna from "../images/etna.png";
 import kyokaFooter from "../images/kyoka-footer.png";
+import killemall from "../images/killemall.jpg";
+import come_as_you_are from "../images/come_as_you_are.png";
 import WindowImage from "../components/WindowImage.astro";
 import { Image } from "astro:assets";
 ---
@@ -14,6 +16,10 @@ import { Image } from "astro:assets";
 <KillEmAllLayout title="We have faith (for sure!)">
   <Draggable x={50} y={200}>
     <WindowImage src={etna} width={250} height={200} alt="That's Etna!" />
+  </Draggable>
+
+  <Draggable x={1000} y={60}>
+    <WindowImage src={killemall} width={250} alt="A Metallica album" />
   </Draggable>
 
   <Draggable x={1000} y={500}>
@@ -60,6 +66,10 @@ import { Image } from "astro:assets";
     </p>
   </main>
 
+  <div class="image-center">
+    <Image src={come_as_you_are} alt="Tabs of a song" loading="lazy" />
+  </div>
+
   <footer>
     <div>
       <a href="https://nekoweb.org/"
@@ -79,6 +89,13 @@ import { Image } from "astro:assets";
   main {
     text-align: justify;
     color: var(--accent);
+    border: 1px solid var(--primary);
+    box-shadow:
+      0 0 32px color-mix(in srgb, var(--primary) 60%, transparent),
+      0 0 4px color-mix(in srgb, var(--accent) 30%, transparent);
+    padding: 2rem;
+    background: var(--background);
+    box-sizing: border-box;
   }
 
   footer {
@@ -86,6 +103,12 @@ import { Image } from "astro:assets";
     justify-content: center;
     align-items: center;
   }
+
+  .image-center {
+    display: flex;
+    justify-content: center;
+  }
+
   .footer-image {
     position: absolute;
     bottom: 0;

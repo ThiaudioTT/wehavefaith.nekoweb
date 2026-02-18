@@ -1,0 +1,58 @@
+---
+interface Props {
+  x?: number;
+  y?: number;
+}
+
+const { x = 100, y = 100 } = Astro.props;
+---
+
+<div class="draggable" style={`left: ${x}px; top: ${y}px;`}>
+  <slot />
+</div>
+
+<style>
+  .draggable {
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .draggable.dragging {
+    cursor: grabbing;
+    z-index: 1000;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.draggable').forEach((el) => {
+    let offsetX = 0;
+    let offsetY = 0;
+    let isDragging = false;
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDragging = true;
+      el.classList.add('dragging');
+      offsetX = e.clientX - el.offsetLeft;
+      offsetY = e.clientY - el.offsetTop;
+      
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      el.style.left = `${e.clientX - offsetX}px`;
+      el.style.top = `${e.clientY - offsetY}px`;
+    };
+
+    const onMouseUp = () => {
+      isDragging = false;
+      el.classList.remove('dragging');
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    el.addEventListener('mousedown', onMouseDown);
+  });
+</script>

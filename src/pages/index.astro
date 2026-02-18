@@ -1,19 +1,25 @@
 ---
 import KillEmAllLayout from "../layouts/KillEmAllLayout.astro";
 import Window from "../components/Window.astro";
+import StickyNote from "../components/StickyNote.astro";
+import Draggable from "../components/Draggable.astro";
 import MainTitle from "../components/MainTitle.astro";
 ---
 
 <MainTitle />
 
 <KillEmAllLayout title="We have faith (for sure!)">
-  <Window title="Drink Menu">
-    <p>
-      Welcome to the bar, Thiago.<br /> Time to mix some drinks and change some lives.
-    </p>
-  </Window>
+  <Draggable x={50} y={150}>
+    <Window title="Drink Menu">
+      <p>
+        Welcome to the bar, Thiago.<br /> Time to mix some drinks and change some lives.
+      </p>
+    </Window>
+  </Draggable>
 
-  <Window title="Status">
-    <p>System online.<br />Color palette active.<br />Neon powered.</p>
-  </Window>
+  <Draggable x={400} y={200}>
+    <StickyNote title="Note">
+      I am a sticky note.
+    </StickyNote>
+  </Draggable>
 </KillEmAllLayout>

@@ -1,7 +1,125 @@
-<h1>We have faith! &dagger;</h1>
+<h1 class="main-title" data-text="We have faith! †">
+  <span class="title-text">We have faith! †</span>
+</h1>
 
 <style>
-  h1 {
+  @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
+
+  .main-title {
     text-align: center;
+    font-family: "Orbitron", sans-serif;
+    font-size: 3.5rem;
+    margin: 2rem 0 0rem 0;
+    position: relative;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .title-text {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #e10600,
+      0 0 40px #e10600,
+      0 0 60px #e10600;
+    animation: flicker 3s infinite;
+  }
+
+  .main-title::before,
+  .main-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+
+  .main-title::before {
+    color: #ff4b4b;
+    animation: glitch-1 0.3s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  }
+
+  .main-title::after {
+    color: white;
+    animation: glitch-2 0.2s infinite linear alternate-reverse;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  }
+
+  @keyframes flicker {
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #e10600,
+        0 0 40px #e10600,
+        0 0 60px #e10600;
+    }
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  }
+
+  @keyframes glitch-1 {
+    0% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-3px);
+    }
+    40% {
+      transform: translateX(3px);
+    }
+    60% {
+      transform: translateX(-1px);
+    }
+    80% {
+      transform: translateX(2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes glitch-2 {
+    0% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(3px);
+    }
+    40% {
+      transform: translateX(-3px);
+    }
+    60% {
+      transform: translateX(1px);
+    }
+    80% {
+      transform: translateX(-2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 2rem;
+    }
   }
 </style>

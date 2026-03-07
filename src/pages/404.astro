@@ -1,0 +1,65 @@
+---
+import KillEmAllLayout from "../layouts/KillEmAllLayout.astro";
+import chaosdebate from "../images/chaos-debate.jpg";
+import { Image } from "astro:assets";
+---
+
+<KillEmAllLayout title="404 - Nothing here">
+  <div class="not-found">
+    <h1>404</h1>
+    <p>Nothing here.</p>
+    <a href="/" title="Go back home">
+      <span>Click on the happiest chaos to go back</span>
+      <Image src={chaosdebate} alt="Click on image to go back" width={320} />
+    </a>
+  </div>
+</KillEmAllLayout>
+
+<style>
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .not-found h1 {
+    font-size: 6rem;
+    margin: 0;
+    color: var(--accent, #fff);
+  }
+
+  .not-found p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .not-found a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .not-found a:hover {
+    opacity: 1;
+  }
+
+  .not-found a img {
+    border: 2px solid var(--accent, #fff);
+    cursor: pointer;
+  }
+
+  .not-found a span {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+</style>
